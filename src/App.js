@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import Sports from './component/sport_quiz/sports.js'
 import './App.css';
-
+import Home from './component/Home/Home'
+import Maths from './component/maths_quiz/maths'
+import Gk from './component/gk_quiz/gk'
+import Tnpsc from './component/tnpsc_quiz/Tnpsc'
+import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Home/>
+      <Sports/>
+      <Maths/>
+      <Gk/>
+      <Tnpsc/>
     </div>
   );
 }
