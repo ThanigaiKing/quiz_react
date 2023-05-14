@@ -9,11 +9,13 @@ function App() {
 
   return (
     <div className="App">
+      <BrowserRouter>
       <Home/>
       <Sports/>
       <Maths/>
       <Gk/>
       <Tnpsc/>
+      </BrowserRouter>
     </div>
   );
 }
