@@ -22,7 +22,7 @@ const Tnpsc = () => {
     } 
         console.log(score);
     return (
-      <div className="HomeContainer">
+      <div className="contents">
       <div className="quiz-container">
         {showscore?<h1 className='quiz-score'>Your score : {score}</h1>:
           (<div className="quiz-data-container">

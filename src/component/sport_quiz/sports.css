@@ -4,11 +4,13 @@
     height:40%;
     background-color:#ff00ff;
     position: relative;
-    top:200px;
-    left:33%;
+    top:160px;
+    left:30%;
     border-radius: 10px;
     padding-top:2px;
     padding-left: 10px;
+    border: 1.2px solid rgb(255, 255, 255);
+    box-shadow: 0 15px 35px rgba(116, 91, 91, 0.6);
 }
 .quiz-question{
     text-align: center;

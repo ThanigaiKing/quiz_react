@@ -4,7 +4,7 @@
 import React from 'react'
 import Data from './gkdata'
 import {useState} from 'react'
-const gk = () => {
+const Gk = () => {
     const [questionindex,setQuestionindex] = useState(0);
     const [score,setScore] = useState(0);
     const [showscore,setShowScore]=useState(false);
@@ -24,7 +24,7 @@ const gk = () => {
     } 
         console.log(score);
     return (
-      <div className="HomeContainer">
+      <div className="contents">
       <div className="quiz-container">
         {showscore?<h1 className='quiz-score'>Your score : {score}</h1>:
           (<div className="quiz-data-container">
@@ -47,4 +47,4 @@ const gk = () => {
     )
 }
 
-export default gk
+export default Gk

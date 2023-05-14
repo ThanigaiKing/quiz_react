@@ -2,7 +2,7 @@
 import {useState} from 'react'
 import Data from './sportdata'
 import './sports.css'
-const sports = () => {
+const Sports = () => {
   const [questionindex,setQuestionindex] = useState(0);
   const [score,setScore] = useState(0);
   const [showscore,setShowScore]=useState(false);
@@ -22,7 +22,7 @@ const sports = () => {
   } 
       console.log(score);
   return (
-    <div className="HomeContainer">
+    <div className="contents">
     <div className="quiz-container">
       {showscore?<h1 className='quiz-score'>Your score : {score}</h1>:
         (<div className="quiz-data-container">
@@ -45,4 +45,4 @@ const sports = () => {
   )
 }
 
-export default sports
+export default Sports
