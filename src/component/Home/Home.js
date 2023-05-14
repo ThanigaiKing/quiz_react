@@ -1,39 +1,75 @@
-import React from 'react'
-import './Home.css'
-import Combine from '../combine/combine'
-import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
+import React, { useState } from "react";
+import "./Home.css";
+import Combine from "../combine/combine";
+import HomeBody from "./HomeBody";
+import Tnpsc from "../tnpsc_quiz/Tnpsc";
+import Gk from "../gk_quiz/Gk";
+import Sports from "../sport_quiz/Sports";
+import Maths from "../maths_quiz/Maths";
+import Login from "../Login";
+import { useSelector,  useDispatch } from "react-redux";
+
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 const Home = () => {
+  const store = useSelector((store) => store);
+  console.log(store);
+
+  const [showScoreCard,setShowScoreCard]=useState(false);
+
+  function toggle(){
+    setShowScoreCard(prev=> !prev);
+  }
+
   return (
     <div className="HomeContainer">
-      <div className="HomeHeader">
-        <div className="header-logo">
-          {/* <img src={Logo} alt="error"/> */}
-          <h1>Sn<span className="o-design">o</span>thy</h1>
+      <Router>
+        <div className="HomeHeader">
+          <div className="header-logo">
+            <Link to="/combine" style={{ textDecoration: "none" }}>
+              <h1>
+                Sn<span className="o-design">o</span>th
+              </h1>
+            </Link>
+          </div>
+          <div className="header-nav">
+            <ul className="header-list">
+              <li className="headerlisten-content">&nbsp;&nbsp; </li>
+              <li className="headerlisten-content">&nbsp;&nbsp; </li>
+              {store.name !== " " && (
+                <div>
+                  <li className="headerlisten-content"><b>{store.name}</b></li>
+                  <li className="headerlisten-content" onClick={toggle}>View Scores</li>
+                  <Link to="/" style={{ textDecoration: "none" }}>
+                    <li className="headerlisten-content">Sign Out</li>
+                  </Link>{" "}
+                </div>
+              )}
+            </ul>
+          </div>
         </div>
-        <div className="header-nav">
-          <ui className="header-list">
-            <li className="headerlisten-content">Help</li>
-            <li className="headerlisten-content">About Us</li>
-            <li className="headerlisten-content">Contact</li>
-            <li className="headerlisten-content">Sign In</li>
-            <li className="headerlisten-content">Sign Up</li> 
-          </ui>
+
+        <div className="contents">
+          <Routes>
+            <Route exact path="/" element={<HomeBody />}></Route>
+            <Route exact path="/login" element={<Login />}></Route>
+            <Route exact path="/combine" element={<Combine />}></Route>
+            <Route exact path="/sport" element={<Sports />}></Route>
+            <Route exact path="/gk" element={<Gk />}></Route>
+            <Route exact path="/tnpsc" element={<Tnpsc />}></Route>
+            <Route exact path="/math" element={<Maths />}></Route>
+          </Routes>
         </div>
-      </div>
-      <div className="HomeBody">
-        <div className="HomeBodyContent">
-           <h1>Master Data Manager</h1>
-           <h4>purpose of app is manage the data with calculation and without writting in notes</h4>  
-        </div>
-        <Router>
-       <Link to="/combine"><button className="welcome-button">Welcome to Snothy</button></Link>
-       <Routes>
-        <Route exact path='/combine' element={<Combine/>}></Route>
-       </Routes>
-        </Router>
+      </Router>
+      <div className={`score-card ${showScoreCard?"card-visible":""}`}>
+        <div>Score</div>
+        <div>GK: {store.score.gk}</div>
+        <div>Math: {store.score.math}</div>
+        <div>Sport: {store.score.sport}</div>
+        <div>TNPSC: {store.score.tnpsc}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

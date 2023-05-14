@@ -1,0 +1,21 @@
+.navigate-button{
+    background-color: aquamarine;
+    width: 340px;
+    height: 120px;
+    margin: 30px 30px 30px;
+    /* border:  3px dashed blueviolet; */
+    font-size: 150%;
+    border-radius: 30px;
+    border: 1.2px solid rgb(160, 120, 120);
+    box-shadow: 0 15px 35px rgba(170, 102, 102, 0.6);
+    cursor: pointer;
+    padding: 20px 30px 20px;
+}
+.menu{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* border: 2px solid greenyellow; */
+    padding-left: 180px;
+    padding-right: 180px;
+}
+
