@@ -20,8 +20,10 @@ export const scoreReducer=(state=initialState,action)=>{
         case UPDATE_SCORE:
             return{
                 ...state,
-                score:
-                    [action.sub]=action.score,
+                score:{
+                    ...state.score,
+                    [action.sub]:action.mark
+                }
             }
         default:
             return state

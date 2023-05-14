@@ -71,8 +71,30 @@
     transition: all .25s ease;
     box-shadow: -5px 6px 20px 0px rgba(26, 26, 26, 0.4);
   }
+  .subscribe .ok-btn {
+    position: absolute;
+    border-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background-color: #0f0092;
+    color: #FFF;
+    padding: 12px 25px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    left: -10px;
+    bottom: -20px;
+    cursor: pointer;
+    transition: all .25s ease;
+    box-shadow: -5px 6px 20px 0px rgba(26, 26, 26, 0.4);
+  }
   
   .subscribe .submit-btn:hover {
+    background-color: purple;
+    box-shadow: -5px 6px 20px 0px rgba(88, 88, 88, 0.569);
+  }
+  .subscribe .ok-btn:hover {
     background-color: purple;
     box-shadow: -5px 6px 20px 0px rgba(88, 88, 88, 0.569);
   }

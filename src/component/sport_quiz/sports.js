@@ -2,11 +2,21 @@
 import {useState} from 'react'
 import Data from './sportdata'
 import './sports.css'
+
+import { useDispatch, useSelector } from "react-redux";
+import { UPDATE_SCORE } from "../../actionTypes/actionTypes";
+
 const Sports = () => {
   const [questionindex,setQuestionindex] = useState(0);
   const [score,setScore] = useState(0);
   const [showscore,setShowScore]=useState(false);
+
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  console.log(state);
+
   const data=Data[questionindex];
+
   function selectoption(i) {
     console.log("hi");
     if (data.answer === i) {
@@ -18,13 +28,16 @@ const Sports = () => {
     }
     else{
        setShowScore(true);
-    }
+      }
+      dispatch({ type: UPDATE_SCORE, sub: 'sport', mark: score });
+      console.log(state + " sport score");
+      console.log("set scor is "+score);
   } 
-      console.log(score);
+      // console.log(score);
   return (
     <div className="contents">
     <div className="quiz-container">
-      {showscore?<h1 className='quiz-score'>Your score : {score}</h1>:
+      {showscore?<h1 className='quiz-score'>Your score : {state.score.sport}</h1>:
         (<div className="quiz-data-container">
           <div className='quiz-question-space'>
         <h3 className='quiz-question'>{data.question}</h3>

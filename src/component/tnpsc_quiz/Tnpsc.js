@@ -2,10 +2,19 @@
 import React from 'react'
 import Data from './tnpscdata'
 import {useState} from 'react'
+
+import { useDispatch, useSelector } from "react-redux";
+import { UPDATE_SCORE } from "../../actionTypes/actionTypes";
+
 const Tnpsc = () => {
     const [questionindex,setQuestionindex] = useState(0);
     const [score,setScore] = useState(0);
     const [showscore,setShowScore]=useState(false);
+
+    const state = useSelector((state) => state);
+    const dispatch = useDispatch();
+    console.log(state);
+
     const data=Data[questionindex];
     function selectoption(i) {
       console.log("hi");
@@ -18,13 +27,16 @@ const Tnpsc = () => {
       }
       else{
          setShowScore(true);
-      }
+        }
+        dispatch({ type: UPDATE_SCORE, sub: 'tnpsc', mark: score });
+    //  console.log(state + " tnpsc score");
+    console.log("set scor is "+score);
+
     } 
-        console.log(score);
     return (
       <div className="contents">
       <div className="quiz-container">
-        {showscore?<h1 className='quiz-score'>Your score : {score}</h1>:
+        {showscore?<h1 className='quiz-score'>Your score : {state.score.tnpsc}</h1>:
           (<div className="quiz-data-container">
             <div className='quiz-question-space'>
           <h3 className='quiz-question'>{data.question}</h3>

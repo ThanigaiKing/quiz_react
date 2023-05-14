@@ -6,7 +6,6 @@ import './combine.css';
 const combine = () => {
   return (
     <div className="contents">
-      Combine
       <div className="menu">
        <Link to="/sport"><button className="navigate-button">Sports Quiz</button></Link>
        <Link to="/gk"><button className="navigate-button">GK Quiz</button></Link>

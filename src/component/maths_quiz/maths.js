@@ -2,10 +2,19 @@
 import React from "react";
 import { useState } from "react";
 import Data from "./mathsdata";
+
+import { useDispatch, useSelector } from "react-redux";
+import { ADD_USER, UPDATE_SCORE } from "../../actionTypes/actionTypes";
+
 const Maths = () => {
   const [questionindex, setQuestionindex] = useState(0);
   const [score, setScore] = useState(0);
   const [showscore, setShowScore] = useState(false);
+
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  console.log(state);
+
   const data = Data[questionindex];
   function selectoption(i) {
     console.log("hi");
@@ -18,14 +27,16 @@ const Maths = () => {
     } else {
       setShowScore(true);
     }
+    dispatch({ type: UPDATE_SCORE, sub: 'math', mark: score });
+    // console.log(state + " math score");
+    console.log("set scor is "+score);
   }
-  console.log(score);
   return (
     <div className="contents">
         {/* <div className="left-arrow">left</div> */}
       <div className="quiz-container">
         {showscore ? (
-          <h1 className="quiz-score">Your score : {score}</h1>
+          <h1 className="quiz-score">Your score : {state.score.math}</h1>
         ) : (
           <div className="quiz-data-container">
             <div className="quiz-question-space">
