@@ -3,12 +3,11 @@ import "./Home.css";
 import Combine from "../combine/combine";
 import HomeBody from "./HomeBody";
 import Tnpsc from "../tnpsc_quiz/Tnpsc";
-import Gk from "../gk_quiz/Gk";
-import Sports from "../sport_quiz/Sports";
-import Maths from "../maths_quiz/Maths";
+import Gk from "../gk_quiz/gk";
+import Sports from "../sport_quiz/sports";
+import Maths from "../maths_quiz/maths";
 import Login from "../Login";
 import { useSelector,  useDispatch } from "react-redux";
-
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const Home = () => {
